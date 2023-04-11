@@ -1,5 +1,0 @@
-Linear Regression and Logical Regression
-  1\ Constructing a logistic regression model to predict whether students are admitted to universities
-  2\ 
-  2.1 Univariate linear regression: predicting the profit of snack bars.
-  2.2 Multivariate linear regression: To predict house prices, the input variables have two characteristics: one is the area of the house, the other is the number of bedrooms in the house; The output variable is the price of the house.
