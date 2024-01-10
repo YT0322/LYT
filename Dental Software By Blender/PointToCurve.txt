@@ -1,0 +1,34 @@
+
+def PointsToCurve(l_p , a_p, r_p):
+        
+    obj = bpy.data.objects.get("arch")
+    if obj: 
+        bpy.data.objects.remove(obj)
+
+    name = "arch"
+    temp = bpy.data.meshes.get(name + "_mesh" )
+    if temp :
+        bpy.data.meshes.remove(temp)
+    bpy.ops.curve.primitive_bezier_curve_add(enter_editmode=True, align='WORLD', location=(0, 0, 0), scale=(1, 1, 1))
+
+    obj = bpy.context.object 
+    # obj.data.dimensions = '2D'
+    obj.name = "arch"
+    obj.data.name = name+"_mesh" 
+    print(obj)
+    # bpy.ops.object.select_all(action="DESELECT")
+    # obj.select_set(True) 
+    # bpy.context.view_layer.objects.active  =obj 
+    # bpy.ops.curve.delete(type='VERT') # 删除默认曲线点 
+    # bpy.ops.curve.vertex_add(1) 
+    # obj.data.splines[0].bezier_points.add(2)
+    obj.data.splines[0].bezier_points.add(1) 
+    obj.data.splines[0].bezier_points[0].co =l_p.location
+    obj.data.splines[0].bezier_points[1].co =a_p.location
+    obj.data.splines[0].bezier_points[2].co =r_p.location
+
+    # obj.data.splines[0].bezier_points[0].handle_left = Vector((1,1,2)) 
+    bpy.ops.object.mode_set(mode="OBJECT")
+    return obj
+    # bpy.ops.object.editmode_toggle()
+
